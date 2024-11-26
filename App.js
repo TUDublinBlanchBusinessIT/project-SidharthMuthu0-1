@@ -24,7 +24,7 @@ function HomeScreen({ navigation }) {
 
       {/* Banner Image */}
       <Image
-        source={{ uri: '' }} // Replace with your image URL
+        source={{ uri: 'https://images.prodirectsport.com/ProductImages/Main/283254_Main_Thumb_1410187.jpg' }} // Replace with your image URL
         style={styles.bannerImage}
       />
 
@@ -32,6 +32,13 @@ function HomeScreen({ navigation }) {
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Customise Jerseys')}>
         <Text style={styles.buttonText}>Shop Now</Text>
       </TouchableOpacity>
+
+      {/* Additional Image Under "Shop Now" */}
+      <Image
+        source={{ uri: 'https://images.prodirectsport.com/ProductImages/Main/283258_Main_Thumb_1410207.jpg' }} // Replace with your second image URL
+        style={styles.secondaryImage}
+      />
+
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Club Kits')}>
         <Text style={styles.buttonText}>Customized Kits</Text>
       </TouchableOpacity>
@@ -97,10 +104,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   bannerImage: {
-    width: '100%',
-    height: 150,
+    width: '60%', // Adjusts image width relative to screen width
+    height: 150,  // Reduces height of the image
     borderRadius: 10,
-    marginBottom: 20, // Adds space below the image
+    marginBottom: 20,
+  },
+  secondaryImage: {
+    width: '60%', // Adjusts second image width
+    height: 140,   // Adjusts height for second image
+    borderRadius: 8,
+    marginVertical: 20, // Adds spacing above and below this image
   },
   button: {
     backgroundColor: '#007BFF',
