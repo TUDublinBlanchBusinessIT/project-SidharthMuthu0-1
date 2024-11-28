@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, Modal, Pressable, StyleSheet } from 'react-native';
-import CommonStyles from './CommonStyles'; 
+import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import CommonStyles from './CommonStyles';
 
 function CustomiseJerseyScreen() {
   const [size, setSize] = useState(null);
@@ -8,24 +8,25 @@ function CustomiseJerseyScreen() {
   const availableSizes = ['S', 'M', 'L', 'XL'];
 
   return (
-    <View style={CommonStyles.container}> {/* Use CommonStyles instead of styles */}
+    <View style={CommonStyles.container}>
       <Text style={CommonStyles.text}>Customize Your Jersey</Text>
 
-      {/* Local Image */}
       <Image
         source={{
           uri: 'https://images.prodirectsport.com/ProductImages/Main/222532_Main_0864538.jpg',
         }}
-        style={CommonStyles.bannerImage}  
+        style={CommonStyles.bannerImage}
       />
 
-      {/* Size Selection */}
       <Text style={CommonStyles.sectionTitle}>Select Size:</Text>
       <View style={CommonStyles.sizeContainer}>
         {availableSizes.map((item) => (
           <TouchableOpacity
             key={item}
-            style={[CommonStyles.sizeButton, size === item && CommonStyles.sizeButtonSelected]}
+            style={[
+              CommonStyles.sizeButton,
+              size === item && CommonStyles.sizeButtonSelected,
+            ]}
             onPress={() => setSize(item)}
           >
             <Text style={[CommonStyles.sizeText, size === item && CommonStyles.sizeTextSelected]}>
@@ -35,7 +36,6 @@ function CustomiseJerseyScreen() {
         ))}
       </View>
 
-      {/* Quantity Selector */}
       <Text style={CommonStyles.sectionTitle}>Select Quantity:</Text>
       <View style={CommonStyles.quantityContainer}>
         <TouchableOpacity
@@ -53,7 +53,6 @@ function CustomiseJerseyScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Submit Button */}
       <TouchableOpacity style={CommonStyles.button}>
         <Text style={CommonStyles.buttonText}>Add to Cart</Text>
       </TouchableOpacity>
