@@ -69,6 +69,18 @@ const CommonStyles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
+  summaryContainer: {
+  padding: 20,
+  borderTopWidth: 1,
+  borderTopColor: '#ccc',
+  width: '100%',
+  alignItems: 'center',
+},
+summaryText: {
+  fontSize: 18,
+  fontWeight: 'bold',
+  marginBottom: 10,
+},
 });
 
 export default CommonStyles;
