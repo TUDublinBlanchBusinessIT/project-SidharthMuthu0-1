@@ -9,7 +9,7 @@ container: {
   },
   
   searchContainer: {
-    width: '100%',
+    width: '60%',
     marginBottom: 20,
   },
   searchInput: {
@@ -28,7 +28,7 @@ container: {
   },
   bannerImage: {
     width: '60%',
-    height: 150,
+    height: 170,
     borderRadius: 10,
     marginBottom: 20,
   },
@@ -114,8 +114,6 @@ container: {
     color: '#000',
   },
 
-
-  // Text styles
   text: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -130,7 +128,7 @@ container: {
   },
 
 
-  // Size selection buttons
+  
   sizeContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -155,7 +153,7 @@ container: {
     color: '#fff',
   },
 
-  // Quantity selector
+
   quantityContainer: {
     flexDirection: 'row',
     alignItems: 'center',
