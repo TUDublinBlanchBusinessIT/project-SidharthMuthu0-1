@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, FlatList, TouchableOpacity, Alert } from 'react-native';
-import CommonStyles from './CommonStyles';
+import CommonStyles from './commonstyles2';
 
 const cartItems = [
   {
