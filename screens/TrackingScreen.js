@@ -27,7 +27,7 @@ export default function TrackingScreen() {
       
       {/* Email Input */}
       <TextInput
-        style={CommonStyles.searchInput}
+        style={[CommonStyles.searchInput, styles.spacing]} // Add spacing
         placeholder="Enter your email"
         value={email}
         onChangeText={setEmail}
@@ -37,7 +37,7 @@ export default function TrackingScreen() {
 
       {/* Tracking Code Input */}
       <TextInput
-        style={CommonStyles.searchInput}
+        style={[CommonStyles.searchInput, styles.spacing]} // Add spacing
         placeholder="Enter your tracking code"
         value={trackingCode}
         onChangeText={setTrackingCode}
@@ -54,3 +54,9 @@ export default function TrackingScreen() {
     </View>
   );
 }
+
+const styles = {
+  spacing: {
+    marginBottom: 15, // Adds space below each input field
+  },
+};
