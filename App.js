@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -8,6 +7,8 @@ import ClubKitsScreen from './screens/clubKitsScreen';
 import CheckoutScreen from './screens/CheckoutScreen';
 import SalesScreen from './screens/SalesScreen';
 import SignUp from './screens/SignUp';
+import TrackingScreen from './screens/TrackingScreen'
+
 
 
 const Stack = createStackNavigator();
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Screen name="Checkout" component={CheckoutScreen} />
         <Stack.Screen name="Sales" component={SalesScreen} />
         <Stack.Screen name="SignUp" component={SignUp} />
+         <Stack.Screen name="Tracking" component={TrackingScreen} /> 
 
       </Stack.Navigator>
     </NavigationContainer>

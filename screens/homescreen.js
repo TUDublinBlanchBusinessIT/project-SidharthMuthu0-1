@@ -7,6 +7,14 @@ function HomeScreen({ navigation }) {
 
   return (
     <View style={CommonStyles.container}>
+      {/* Sign-Up Button in the Top-Right Corner */}
+      <TouchableOpacity
+        style={styles.signUpButton}
+        onPress={() => navigation.navigate('SignUp')}
+      >
+        <Text style={styles.signUpButtonText}>Sign Up</Text>
+      </TouchableOpacity>
+
       {/* Search Bar */}
       <View style={CommonStyles.searchContainer}>
         <TextInput placeholder="Search" style={CommonStyles.searchInput} />
@@ -23,8 +31,7 @@ function HomeScreen({ navigation }) {
         style={CommonStyles.bannerImage}
       />
 
-  
-      {/* Buttons */}
+      {/* Customise Jerseys Button */}
       <TouchableOpacity
         style={CommonStyles.button}
         onPress={() => navigation.navigate('Customise Jerseys')}
@@ -39,6 +46,7 @@ function HomeScreen({ navigation }) {
         style={CommonStyles.bannerImage}
       />
 
+      {/* Club Kits Button */}
       <TouchableOpacity
         style={CommonStyles.button}
         onPress={() => navigation.navigate('Club Kits')}
@@ -106,4 +114,22 @@ function HomeScreen({ navigation }) {
   );
 }
 
+const styles = {
+  signUpButton: {
+    position: 'absolute',
+    top: 5, // Adjust for higher placement
+    right: 10, // Keep it near the top-right corner
+    backgroundColor: '#007BFF',
+    padding: 10,
+    borderRadius: 5,
+    zIndex: 10,
+  },
+  signUpButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 12,
+  },
+};
+
 export default HomeScreen;
+
