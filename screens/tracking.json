@@ -1,0 +1,9 @@
+{
+    "orders": {
+      "trackingCode123": {
+        "email": "user@example.com",
+        "status": "In Transit",
+        "estimatedDelivery": "2023-12-10T14:00:00Z"
+      }
+    }
+  }

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -8,6 +9,7 @@ import CheckoutScreen from './screens/CheckoutScreen';
 import SalesScreen from './screens/SalesScreen';
 import SignUp from './screens/SignUp';
 import TrackingScreen from './screens/TrackingScreen'
+import LoginScreen from './screens/LoginScreen'
 
 
 
@@ -24,6 +26,7 @@ export default function App() {
         <Stack.Screen name="Sales" component={SalesScreen} />
         <Stack.Screen name="SignUp" component={SignUp} />
          <Stack.Screen name="Tracking" component={TrackingScreen} /> 
+         <Stack.Screen name="Login"  component= {LoginScreen}/>
 
       </Stack.Navigator>
     </NavigationContainer>
