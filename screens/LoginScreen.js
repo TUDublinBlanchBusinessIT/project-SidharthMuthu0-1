@@ -1,67 +1,85 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert } from 'react-native';
-import { auth } from './firebaseConfig'; // Import your Firebase Auth instance
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import CommonStyles from './CommonStyles'; // Import your common styles (adjust path if necessary)
+import { View, Text, TextInput, TouchableOpacity, Alert, Button, StyleSheet } from 'react-native';
+import { auth } from './firebaseConfig';  // Ensure auth is from firebase@8.x.x style config
 
-export default function LoginScreen({ navigation }) {
+function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleLogin = async () => {
+  const handleLogin = () => {
     if (!email || !password) {
-      Alert.alert('Error', 'Please fill in both fields.');
+      setMessage('Please fill in both fields.');
       return;
     }
 
-    try {
-      // Attempt to sign in with the provided email and password
-      const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
-
-      Alert.alert('Success', `Welcome back, ${user.email}!`);
-      // Navigate to the "MyAccount" screen after a successful login
-      navigation.navigate('MyAccount');
-    } catch (error) {
-      // Display an alert if login fails (e.g., invalid email/password)
-      Alert.alert('Login Error', error.message);
-    }
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // userCredential.user is the logged-in user
+        setMessage('Login successful!');
+        Alert.alert('Success', `Welcome back, ${userCredential.user.email}!`);
+        // You could navigate to another screen here if you have navigation set up
+        // navigation.navigate('MyAccount');
+      })
+      .catch((error) => {
+        setMessage(`Error: ${error.message}`);
+      });
   };
 
   return (
-    <View style={CommonStyles.container}>
-      <Text style={CommonStyles.text}>Login</Text>
-
-      {/* Email Input Field */}
+    <View style={styles.container}>
+      <Text style={styles.header}>Login</Text>
+      
       <TextInput
-        style={[CommonStyles.searchInput, styles.spacing]}
-        placeholder="Enter Email"
+        style={styles.input}
+        placeholder="Email"
         value={email}
         onChangeText={setEmail}
-        autoCapitalize="none"
         keyboardType="email-address"
+        autoCapitalize="none"
       />
 
-      {/* Password Input Field */}
       <TextInput
-        style={[CommonStyles.searchInput, styles.spacing]}
-        placeholder="Enter Password"
+        style={styles.input}
+        placeholder="Password"
+        secureTextEntry
         value={password}
         onChangeText={setPassword}
-        secureTextEntry
       />
 
-      {/* Login Button */}
-      <TouchableOpacity style={CommonStyles.button} onPress={handleLogin}>
-        <Text style={CommonStyles.buttonText}>Login</Text>
-      </TouchableOpacity>
+      <Button title="Login" onPress={handleLogin} />
+
+      {message ? <Text style={styles.message}>{message}</Text> : null}
     </View>
   );
 }
 
-const styles = {
-  spacing: {
-    marginBottom: 15, // Adds space below each input field
+export default LoginScreen;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    padding: 16,
   },
-};
+  header: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    textAlign: 'center',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 4,
+    padding: 12,
+    marginBottom: 12,
+  },
+  message: {
+    marginTop: 16,
+    textAlign: 'center',
+    color: 'red',
+  },
+});
 
