@@ -10,6 +10,8 @@ import SalesScreen from './screens/SalesScreen';
 import SignUp from './screens/SignUp';
 import TrackingScreen from './screens/TrackingScreen'
 import LoginScreen from './screens/LoginScreen'
+import MyprofileScreen from './screens/MyprofileScreen'
+
 
 
 
@@ -27,6 +29,8 @@ export default function App() {
         <Stack.Screen name="SignUp" component={SignUp} />
          <Stack.Screen name="Tracking" component={TrackingScreen} /> 
          <Stack.Screen name="Login"  component= {LoginScreen}/>
+          <Stack.Screen name="MyprofileScreen"  component= {MyprofileScreen}/>
+         
 
       </Stack.Navigator>
     </NavigationContainer>
